@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<site title="BaseUI: %PAGE%" menu="true">
+    <page id="index" src="swf/index.swf">
+        <page id="nav" src="swf/nav.swf" depth="top">
+            <page id="home" title="Home" src="swf/pages/home.swf" menu="true" />
+            <page id="default" title="Default" src="swf/pages/default.swf" menu="true" />
+        </page>
+    </page>
+</site>

@@ -1,0 +1,4 @@
+deploy/*.swf
+deploy/swf/*.swf
+deploy/swf/pages/*.swf
+lib/

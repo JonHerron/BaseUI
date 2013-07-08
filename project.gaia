@@ -1,0 +1,50 @@
+﻿<project>
+  <name>BaseUI</name>
+  <language>AS3</language>
+  <player>10</player>
+  <version>3.2.6</version>
+  <width>640</width>
+  <height>480</height>
+  <width100>false</width100>
+  <height100>false</height100>
+  <centerX>false</centerX>
+  <centerY>false</centerY>
+  <bgColor>FFFFFF</bgColor>
+  <fps>30</fps>
+  <uri>file:///D|/My%20Projects/Gaia%20Projects/Base%20UI</uri>
+  <flashPath>fla</flashPath>
+  <publishPath>deploy</publishPath>
+  <classesPath>src</classesPath>
+  <siteXmlPath>xml</siteXmlPath>
+  <classPackage>site.pages</classPackage>
+  <template>Actionscript</template>
+  <seo>false</seo>
+  <domain>www.domain.com/</domain>
+  <modified>1373322237625</modified>
+  <optimizeTypes>
+    <bitmapAsset>true</bitmapAsset>
+    <bitmapSpriteAsset>true</bitmapSpriteAsset>
+    <soundAsset>true</soundAsset>
+    <soundClipAsset>true</soundClipAsset>
+    <netStreamAsset>true</netStreamAsset>
+    <textAsset>true</textAsset>
+    <xmlAsset>true</xmlAsset>
+    <styleSheetAsset>true</styleSheetAsset>
+    <jsonAsset>true</jsonAsset>
+    <byteArrayAsset>true</byteArrayAsset>
+  </optimizeTypes>
+  <publishData>
+    <node label="fla" checked="1">
+      <node label="swf" icon="flashFileIcon" checked="1">
+        <node label="pages" icon="flashFileIcon" checked="1">
+          <node label="default.fla" icon="flashFileIcon" checked="1" src="swf/pages/default.fla"/>
+          <node label="home.fla" icon="flashFileIcon" checked="1" src="swf/pages/home.fla"/>
+        </node>
+        <node label="index.fla" icon="flashFileIcon" checked="1" src="swf/index.fla"/>
+        <node label="nav.fla" icon="flashFileIcon" checked="1" src="swf/nav.fla"/>
+      </node>
+      <node label="preload.fla" icon="flashFileIcon" checked="1" src="preload.fla"/>
+      <node label="main.fla" icon="mainFileIcon" checked="1" src="main.fla"/>
+    </node>
+  </publishData>
+</project>
