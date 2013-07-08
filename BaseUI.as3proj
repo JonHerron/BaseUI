@@ -76,6 +76,8 @@
   <hiddenPaths>
     <hidden path="swc" />
     <hidden path="templates" />
+    <hidden path="fla" />
+    <hidden path="lib" />
   </hiddenPaths>
   <!-- Executed before build -->
   <preBuildCommand />
