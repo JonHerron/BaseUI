@@ -1,12 +1,12 @@
 ﻿package site.pages
 {
-	import com.gaiaframework.templates.AbstractPage;
-	import com.gaiaframework.events.*;
-	import com.gaiaframework.debug.*;
 	import com.gaiaframework.api.*;
+	import com.gaiaframework.debug.*;
+	import com.gaiaframework.events.*;
+	import com.gaiaframework.templates.AbstractPage;
+	import com.greensock.TweenMax;
 	import flash.display.*;
 	import flash.events.*;
-	import com.greensock.TweenMax;
 	
 	public class DefaultPage extends AbstractPage
 	{	
@@ -14,7 +14,6 @@
 		{
 			super();
 			alpha = 0;
-			new Scaffold(this);
 		}
 		override public function transitionIn():void 
 		{

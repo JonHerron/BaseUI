@@ -9,6 +9,7 @@
 	import flash.display.*;
 	import flash.events.*;
 	import site.layout.ElementUISprite;
+	import site.layout.template.Scale9GridLayoutSprite;
 	
 	
 	public class IndexPage extends AbstractPage
@@ -19,7 +20,6 @@
 		{
 			super();
 			alpha = 0;
-			new Scaffold(this);
 		}
 		override public function transitionIn():void 
 		{
@@ -36,76 +36,8 @@
 		
 		private function createElements():void 
 		{
-			var xml:XML = IXml(assets.baseUI).xml;
-			
-			var topLeft:ElementUISprite = createElementUISprite(100, 100);
-			topLeft.element = baseUI.add(topLeft);
-			topLeft.setElementPropertiesFromXML(xml.topLeft);
-			addChild(topLeft);
-			
-			var topCentre:ElementUISprite = createElementUISprite(100, 100);
-			topCentre.element = baseUI.add(topCentre);
-			topCentre.setElementPropertiesFromXML(xml.topCentre);
-			addChild(topCentre);
-			
-			var topRight:ElementUISprite = createElementUISprite(100, 100);
-			topRight.element = baseUI.add(topRight);
-			topRight.setElementPropertiesFromXML(xml.topRight);
-			addChild(topRight);
-			
-			
-			
-			var middleLeft:ElementUISprite = createElementUISprite(100, 100);
-			middleLeft.element = baseUI.add(middleLeft);
-			middleLeft.setElementPropertiesFromXML(xml.middleLeft);
-			addChild(middleLeft);
-			
-			var middleCentre:ElementUISprite = createElementUISprite(100, 100);
-			middleCentre.element = baseUI.add(middleCentre);
-			middleCentre.setElementPropertiesFromXML(xml.middleCentre);
-			addChild(middleCentre);
-			
-			var middleRight:ElementUISprite = createElementUISprite(100, 100);
-			middleRight.element = baseUI.add(middleRight);
-			middleRight.setElementPropertiesFromXML(xml.middleRight);
-			addChild(middleRight);
-			
-			
-			
-			var bottomLeft:ElementUISprite = createElementUISprite(100, 100);
-			bottomLeft.element = baseUI.add(bottomLeft);
-			bottomLeft.setElementPropertiesFromXML(xml.bottomLeft);
-			addChild(bottomLeft);
-			
-			var bottomCentre:ElementUISprite = createElementUISprite(100, 100);
-			bottomCentre.element = baseUI.add(bottomCentre);
-			bottomCentre.setElementPropertiesFromXML(xml.bottomCentre);
-			addChild(bottomCentre);
-			
-			var bottomRight:ElementUISprite = createElementUISprite(100, 100);
-			bottomRight.element = baseUI.add(bottomRight);
-			bottomRight.setElementPropertiesFromXML(xml.bottomRight);
-			addChild(bottomRight);
-			
-		}
-		
-		private function createElementUISprite(width:Number, height:Number):ElementUISprite
-		{
-			var elementUISprite:ElementUISprite = new ElementUISprite();
-			elementUISprite.graphics.beginFill(randomColour(), .7);
-			elementUISprite.graphics.drawRect(0, 0, width, height);
-			elementUISprite.graphics.endFill();
-			
-			return elementUISprite;
-		}
-		
-		private function randomColour():int 
-		{
-			var red:int = 102 + Math.round(Math.random() * 25);
-			var green:int  = 102 + Math.round(Math.random() * 25);
-			var blue:int  = 102 + Math.round(Math.random() * 25);
-			var hex:int = red<<16|green<<8|blue;  
-			return hex; 
+			var scale9Grid:Scale9GridLayoutSprite = new Scale9GridLayoutSprite(baseUI, IXml(assets.baseUI).xml);
+			addChild(scale9Grid);
 		}
 		
 		override public function transitionOut():void 
