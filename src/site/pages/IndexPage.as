@@ -38,40 +38,65 @@
 		{
 			var xml:XML = IXml(assets.baseUI).xml;
 			
-			var topLeft:ElementUISprite = new ElementUISprite();
-			topLeft.graphics.beginFill(0xFF0000, .5);
-			topLeft.graphics.drawRect(0, 0, 100, 100);
-			
+			var topLeft:ElementUISprite = createElementUISprite(100, 100);
 			topLeft.element = baseUI.add(topLeft);
-			topLeft.element.left = xml.topLeft.@left;
-			topLeft.element.top = xml.topLeft.@top;
-			
-			topLeft.element.refresh();	
+			topLeft.setElementPropertiesFromXML(xml.topLeft);
 			addChild(topLeft);
 			
-			var topCentre:ElementUISprite = new ElementUISprite();
-			topCentre.graphics.beginFill(0x00FF00, .5);
-			topCentre.graphics.drawRect(0, 0, 100, 100);
-			
+			var topCentre:ElementUISprite = createElementUISprite(100, 100);
 			topCentre.element = baseUI.add(topCentre);
-			topCentre.element.top = xml.topCentre.@top;
-			topCentre.element.left = xml.topCentre.@left;
-			topCentre.element.right = xml.topCentre.@right;
-			
-			topCentre.element.refresh();	
+			topCentre.setElementPropertiesFromXML(xml.topCentre);
 			addChild(topCentre);
 			
-			var topRight:ElementUISprite = new ElementUISprite();
-			topRight.graphics.beginFill(0x0000FF, .5);
-			topRight.graphics.drawRect(0, 0, 100, 100);
-			
+			var topRight:ElementUISprite = createElementUISprite(100, 100);
 			topRight.element = baseUI.add(topRight);
-			topRight.element.top = xml.topRight.@top;
-			topRight.element.right = xml.topRight.@right;
-			
-			topRight.element.refresh();	
+			topRight.setElementPropertiesFromXML(xml.topRight);
 			addChild(topRight);
 			
+			
+			
+			var middleLeft:ElementUISprite = createElementUISprite(100, 100);
+			middleLeft.element = baseUI.add(middleLeft);
+			middleLeft.setElementPropertiesFromXML(xml.middleLeft);
+			addChild(middleLeft);
+			
+			var middleCentre:ElementUISprite = createElementUISprite(100, 100);
+			middleCentre.element = baseUI.add(middleCentre);
+			middleCentre.setElementPropertiesFromXML(xml.middleCentre);
+			addChild(middleCentre);
+			
+			var middleRight:ElementUISprite = createElementUISprite(100, 100);
+			middleRight.element = baseUI.add(middleRight);
+			middleRight.setElementPropertiesFromXML(xml.middleRight);
+			addChild(middleRight);
+			
+			
+			
+			var bottomLeft:ElementUISprite = createElementUISprite(100, 100);
+			bottomLeft.element = baseUI.add(bottomLeft);
+			bottomLeft.setElementPropertiesFromXML(xml.bottomLeft);
+			addChild(bottomLeft);
+			
+			var bottomCentre:ElementUISprite = createElementUISprite(100, 100);
+			bottomCentre.element = baseUI.add(bottomCentre);
+			bottomCentre.setElementPropertiesFromXML(xml.bottomCentre);
+			addChild(bottomCentre);
+			
+			var bottomRight:ElementUISprite = createElementUISprite(100, 100);
+			bottomRight.element = baseUI.add(bottomRight);
+			bottomRight.setElementPropertiesFromXML(xml.bottomRight);
+			addChild(bottomRight);
+			
+		}
+		
+		private function createElementUISprite(width:Number, height:Number):ElementUISprite
+		{
+			var elementUISprite:ElementUISprite = new ElementUISprite();
+			elementUISprite.graphics.beginFill(Math.random() * 0xCDCDCD, .5);
+			elementUISprite.graphics.drawRect(0, 0, width, height);
+			elementUISprite.graphics.endFill();
+			
+			return elementUISprite;
 		}
 		
 		override public function transitionOut():void 
