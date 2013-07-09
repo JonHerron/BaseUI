@@ -92,11 +92,20 @@
 		private function createElementUISprite(width:Number, height:Number):ElementUISprite
 		{
 			var elementUISprite:ElementUISprite = new ElementUISprite();
-			elementUISprite.graphics.beginFill(Math.random() * 0xCDCDCD, .5);
+			elementUISprite.graphics.beginFill(randomColour(), .7);
 			elementUISprite.graphics.drawRect(0, 0, width, height);
 			elementUISprite.graphics.endFill();
 			
 			return elementUISprite;
+		}
+		
+		private function randomColour():int 
+		{
+			var red:int = 102 + Math.round(Math.random() * 25);
+			var green:int  = 102 + Math.round(Math.random() * 25);
+			var blue:int  = 102 + Math.round(Math.random() * 25);
+			var hex:int = red<<16|green<<8|blue;  
+			return hex; 
 		}
 		
 		override public function transitionOut():void 

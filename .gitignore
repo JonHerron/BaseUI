@@ -2,3 +2,6 @@ deploy/*.swf
 deploy/swf/*.swf
 deploy/swf/pages/*.swf
 lib/
+fla/RECOVER*.fla
+fla/swf/RECOVER*.fla
+fla/swf/pages/RECOVER*.fla
