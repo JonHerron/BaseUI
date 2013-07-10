@@ -5,6 +5,7 @@
 	import com.gaiaframework.events.*;
 	import com.gaiaframework.templates.AbstractPage;
 	import com.greensock.TweenMax;
+	import com.soma.ui.ElementUI;
 	import com.soma.ui.BaseUI;
 	import flash.display.*;
 	import flash.events.*;
@@ -25,8 +26,22 @@
 		{
 			super.transitionIn();
 			createCanvas();
+			createBackground();
 			createElements();
 			TweenMax.to(this, 0.3, {alpha:1, onComplete:transitionInComplete});
+		}
+		
+		private function createBackground():void 
+		{
+			var background:ElementUISprite = new ElementUISprite();
+			var bitmap:Bitmap = IBitmap(assets.background).content;
+			bitmap.visible = true;
+			bitmap.smoothing = true;
+			background.addChild(bitmap);
+			background.element = baseUI.add(background);
+			background.element.ratio = ElementUI.RATIO_OUT;
+			background.element.refresh();
+			addChild(background);
 		}
 		
 		private function createCanvas():void 

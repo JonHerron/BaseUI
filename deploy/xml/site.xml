@@ -2,6 +2,7 @@
 <site title="BaseUI: %PAGE%" menu="true">
     <page id="index" src="swf/index.swf">
 		<asset id="baseUI" src="xml/baseUI.xml" />
+		<asset id="background" src="bitmap/jhp-000.jpg" />
         <page id="nav" src="swf/nav.swf" depth="top">
             <page id="home" title="Home" src="swf/pages/home.swf" menu="true" />
             <page id="default" title="Default" src="swf/pages/default.swf" menu="true" />

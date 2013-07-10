@@ -38,51 +38,56 @@ package site.layout.template
 		
 		private function init():void 
 		{
-			topLeft = createElementUISprite(200, 100, 0x666666);
+			// reference widdth & height from the middleCentre nodes properties
+			// values of 1 mean that property is not fixed and is automatically scaled
+			var middleCentreNode:XMLList = xml.middleCentre;
+			
+			
+			topLeft = createElementUISprite(middleCentreNode.@left, middleCentreNode.@top, 0x666666);
 			topLeft.element = baseUI.add(topLeft);
 			topLeft.setElementPropertiesFromXML(xml.topLeft);
 			addChild(topLeft);
 			
-			topCentre = createElementUISprite(100, 100, 0x666666);
+			topCentre = createElementUISprite(1, middleCentreNode.@top, 0x666666);
 			topCentre.element = baseUI.add(topCentre);
 			topCentre.setElementPropertiesFromXML(xml.topCentre);
 			addChild(topCentre);
 			
-			topRight = createElementUISprite(20, 100, 0x666666);
+			topRight = createElementUISprite(middleCentreNode.@right, middleCentreNode.@top, 0x666666);
 			topRight.element = baseUI.add(topRight);
 			topRight.setElementPropertiesFromXML(xml.topRight);
 			addChild(topRight);
 			
 			
 			
-			middleLeft = createElementUISprite(200, 20, 0x666666);
+			middleLeft = createElementUISprite(middleCentreNode.@left, 1, 0x666666);
 			middleLeft.element = baseUI.add(middleLeft);
 			middleLeft.setElementPropertiesFromXML(xml.middleLeft);
 			addChild(middleLeft);
 			
-			middleCentre = createElementUISprite(100, 100, 0x999999);
+			middleCentre = createElementUISprite(1, 1, 0x999999);
 			middleCentre.element = baseUI.add(middleCentre);
 			middleCentre.setElementPropertiesFromXML(xml.middleCentre);
 			addChild(middleCentre);
 			
-			middleRight = createElementUISprite(20, 20, 0x666666);
+			middleRight = createElementUISprite(middleCentreNode.@right, 1, 0x666666);
 			middleRight.element = baseUI.add(middleRight);
 			middleRight.setElementPropertiesFromXML(xml.middleRight);
 			addChild(middleRight);
 			
 			
 			
-			bottomLeft = createElementUISprite(200, 20, 0x666666);
+			bottomLeft = createElementUISprite(middleCentreNode.@left, middleCentreNode.@bottom, 0x666666);
 			bottomLeft.element = baseUI.add(bottomLeft);
 			bottomLeft.setElementPropertiesFromXML(xml.bottomLeft);
 			addChild(bottomLeft);
 			
-			bottomCentre = createElementUISprite(100, 20, 0x666666);
+			bottomCentre = createElementUISprite(1, middleCentreNode.@bottom, 0x666666);
 			bottomCentre.element = baseUI.add(bottomCentre);
 			bottomCentre.setElementPropertiesFromXML(xml.bottomCentre);
 			addChild(bottomCentre);
 			
-			bottomRight = createElementUISprite(20, 20, 0x666666);
+			bottomRight = createElementUISprite(middleCentreNode.@right, middleCentreNode.@bottom, 0x666666);
 			bottomRight.element = baseUI.add(bottomRight);
 			bottomRight.setElementPropertiesFromXML(xml.bottomRight);
 			addChild(bottomRight);
@@ -93,7 +98,7 @@ package site.layout.template
 		private function createElementUISprite(width:Number, height:Number, colour:uint):ElementUISprite
 		{
 			var elementUISprite:ElementUISprite = new ElementUISprite();
-			elementUISprite.graphics.beginFill( colour );
+			elementUISprite.graphics.beginFill( randomColour(), 0.6 );
 			elementUISprite.graphics.drawRect(0, 0, width, height);
 			elementUISprite.graphics.endFill();
 			
