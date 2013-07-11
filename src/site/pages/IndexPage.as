@@ -33,6 +33,11 @@
 			TweenMax.to(this, 1, {alpha:1, onComplete:transitionInComplete});
 		}
 		
+		private function createCanvas():void 
+		{
+			baseUI = new BaseUI(stage);
+		}
+		
 		private function createBackground():void 
 		{
 			var background:ElementUISprite = new ElementUISprite();
@@ -44,11 +49,6 @@
 			background.element.ratio = ElementUI.RATIO_OUT;
 			background.element.refresh();
 			addChild(background);
-		}
-		
-		private function createCanvas():void 
-		{
-			baseUI = new BaseUI(page.stage);
 		}
 		
 		private function createElements():void 

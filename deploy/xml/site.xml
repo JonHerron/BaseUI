@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<site title="BaseUI: %PAGE%" menu="true">
+<site title="BaseUI: %PAGE%" menu="true" indexFirst="true">
     <page id="index" src="swf/index.swf">
 		<asset id="baseUI" src="xml/baseUI.xml" />
 		<asset id="background" src="bitmap/jhp-000.jpg" />

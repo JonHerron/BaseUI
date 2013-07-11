@@ -43,54 +43,48 @@ package site.layout.template
 			var middleCentreNode:XMLList = xml.middleCentre;
 			
 			
-			topLeft = createElementUISprite(middleCentreNode.@left, middleCentreNode.@top, 0xB26F00);
+			topLeft			= createElementUISprite(middleCentreNode.@left, middleCentreNode.@top, 0x005BB2);
+			topCentre 		= createElementUISprite(1, middleCentreNode.@top, 0x005BB2);
+			topRight 		= createElementUISprite(middleCentreNode.@right, middleCentreNode.@top, 0x005BB2);
+			middleLeft 		= createElementUISprite(middleCentreNode.@left, 1, 0x005BB2);
+			middleCentre 	= createElementUISprite(1, 1, 0x7EC0FF);
+			middleRight 	= createElementUISprite(middleCentreNode.@right, 1, 0x005BB2);
+			bottomLeft 		= createElementUISprite(middleCentreNode.@left, middleCentreNode.@bottom, 0x005BB2);
+			bottomCentre 	= createElementUISprite(1, middleCentreNode.@bottom, 0x005BB2);
+			bottomRight 	= createElementUISprite(middleCentreNode.@right, middleCentreNode.@bottom, 0x005BB2);
+			
+			
 			topLeft.element = baseUI.add(topLeft);
-			topLeft.setElementPropertiesFromXML(xml.topLeft);
-			addChild(topLeft);
-			
-			topCentre = createElementUISprite(1, middleCentreNode.@top, 0x005BB2);
 			topCentre.element = baseUI.add(topCentre);
-			topCentre.setElementPropertiesFromXML(xml.topCentre);
-			addChild(topCentre);
-			
-			topRight = createElementUISprite(middleCentreNode.@right, middleCentreNode.@top, 0xB26F00);
 			topRight.element = baseUI.add(topRight);
-			topRight.setElementPropertiesFromXML(xml.topRight);
-			addChild(topRight);
-			
-			
-			
-			middleLeft = createElementUISprite(middleCentreNode.@left, 1, 0x005BB2);
 			middleLeft.element = baseUI.add(middleLeft);
-			middleLeft.setElementPropertiesFromXML(xml.middleLeft);
-			addChild(middleLeft);
-			
-			middleCentre = createElementUISprite(1, 1, 0x7EC0FF);
 			middleCentre.element = baseUI.add(middleCentre);
-			middleCentre.setElementPropertiesFromXML(xml.middleCentre);
-			addChild(middleCentre);
-			
-			middleRight = createElementUISprite(middleCentreNode.@right, 1, 0x005BB2);
 			middleRight.element = baseUI.add(middleRight);
-			middleRight.setElementPropertiesFromXML(xml.middleRight);
-			addChild(middleRight);
-			
-			
-			
-			bottomLeft = createElementUISprite(middleCentreNode.@left, middleCentreNode.@bottom, 0xB26F00);
 			bottomLeft.element = baseUI.add(bottomLeft);
-			bottomLeft.setElementPropertiesFromXML(xml.bottomLeft);
-			addChild(bottomLeft);
-			
-			bottomCentre = createElementUISprite(1, middleCentreNode.@bottom, 0x005BB2);
 			bottomCentre.element = baseUI.add(bottomCentre);
-			bottomCentre.setElementPropertiesFromXML(xml.bottomCentre);
-			addChild(bottomCentre);
-			
-			bottomRight = createElementUISprite(middleCentreNode.@right, middleCentreNode.@bottom, 0xB26F00);
 			bottomRight.element = baseUI.add(bottomRight);
+			
+			
+			topLeft.setElementPropertiesFromXML(xml.topLeft);
+			topCentre.setElementPropertiesFromXML(xml.topCentre);
+			topRight.setElementPropertiesFromXML(xml.topRight);
+			middleLeft.setElementPropertiesFromXML(xml.middleLeft);
+			middleCentre.setElementPropertiesFromXML(xml.middleCentre);
+			middleRight.setElementPropertiesFromXML(xml.middleRight);
+			bottomLeft.setElementPropertiesFromXML(xml.bottomLeft);
+			bottomCentre.setElementPropertiesFromXML(xml.bottomCentre);
 			bottomRight.setElementPropertiesFromXML(xml.bottomRight);
+			
+			
+			addChild(bottomLeft);
+			addChild(bottomCentre);
 			addChild(bottomRight);
+			addChild(middleLeft);
+			addChild(middleCentre);
+			addChild(middleRight);
+			addChild(topLeft);
+			addChild(topCentre);
+			addChild(topRight);
 			
 		}
 		

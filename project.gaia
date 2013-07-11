@@ -34,10 +34,10 @@
     <byteArrayAsset>true</byteArrayAsset>
   </optimizeTypes>
   <publishData>
-    <node label="fla" checked="2">
-      <node label="swf" icon="flashFileIcon" checked="2">
-        <node label="pages" icon="flashFileIcon" checked="2">
-          <node label="default.fla" icon="flashFileIcon" checked="0" src="swf/pages/default.fla"/>
+    <node label="fla" checked="1">
+      <node label="swf" icon="flashFileIcon" checked="1">
+        <node label="pages" icon="flashFileIcon" checked="1">
+          <node label="default.fla" icon="flashFileIcon" checked="1" src="swf/pages/default.fla"/>
           <node label="home.fla" icon="flashFileIcon" checked="1" src="swf/pages/home.fla"/>
         </node>
         <node label="index.fla" icon="flashFileIcon" checked="1" src="swf/index.fla"/>
