@@ -3,14 +3,13 @@
 	import com.gaiaframework.api.*;
 	import com.gaiaframework.debug.*;
 	import com.gaiaframework.events.*;
-	import com.gaiaframework.templates.AbstractPage;
-	import com.greensock.TweenMax;
 	import com.soma.ui.BaseUI;
 	import flash.display.*;
 	import flash.events.*;
+	import site.core.TimelinePage;
 	import site.layout.ElementUISprite;
 	
-	public class HomePage extends AbstractPage
+	public class HomePage extends TimelinePage
 	{	
 		private var baseUI:BaseUI;
 		private var sprite:ElementUISprite;
@@ -20,12 +19,35 @@
 			super();
 			alpha = 0;
 		}
-		override public function transitionIn():void 
+		
+		override public function createPage():void 
 		{
-			super.transitionIn();
 			createLayoutUI();
-			TweenMax.to(this, 1, {alpha:1, onComplete:transitionInComplete});
 		}
+		
+		override public function pageTransitionIn():void 
+		{
+			//baseUI.refresh();
+		}
+		
+		
+		
+		override public function pageTransitionOut():void 
+		{
+			//throw new IllegalOperationError("method must be overridden in a subclass");
+		}
+		
+		override public function destroyPage():void
+		{
+			//baseUI.dispose();
+			//baseUI = null;
+		}
+		
+		
+		
+		
+		
+		
 		
 		private function createLayoutUI():void 
 		{
@@ -46,12 +68,6 @@
 			sprite.element.refresh(new Event(Event.RESIZE));
 			
 			
-		}
-		
-		override public function transitionOut():void 
-		{
-			super.transitionOut();
-			TweenMax.to(this, 1, {alpha:0, onComplete:transitionOutComplete});
 		}
 		
 		

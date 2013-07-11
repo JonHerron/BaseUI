@@ -3,17 +3,16 @@
 	import com.gaiaframework.api.*;
 	import com.gaiaframework.debug.*;
 	import com.gaiaframework.events.*;
-	import com.gaiaframework.templates.AbstractPage;
-	import com.greensock.TweenMax;
-	import com.soma.ui.ElementUI;
 	import com.soma.ui.BaseUI;
+	import com.soma.ui.ElementUI;
 	import flash.display.*;
 	import flash.events.*;
+	import site.core.TimelinePage;
 	import site.layout.ElementUISprite;
 	import site.layout.template.Scale9GridLayoutSprite;
 	
 	
-	public class IndexPage extends AbstractPage
+	public class IndexPage extends TimelinePage
 	{	
 		public var baseUI:BaseUI;
 		public var scale9GridLayout:Scale9GridLayoutSprite;
@@ -23,19 +22,43 @@
 			super();
 			alpha = 0;
 		}
-		override public function transitionIn():void 
+		
+		override public function createPage():void 
 		{
-			super.transitionIn();
 			createCanvas();
 			createBackground();
 			createElements();
-			baseUI.refresh();
-			TweenMax.to(this, 1, {alpha:1, onComplete:transitionInComplete});
 		}
+		
+		override public function pageTransitionIn():void 
+		{
+			baseUI.refresh();
+		}
+		
+		
+		
+		override public function pageTransitionOut():void 
+		{
+			//throw new IllegalOperationError("method must be overridden in a subclass");
+		}
+		
+		override public function destroyPage():void
+		{
+			baseUI.dispose();
+			baseUI = null;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		private function createCanvas():void 
 		{
-			baseUI = new BaseUI(stage);
+			baseUI = new BaseUI(page.stage);
 		}
 		
 		private function createBackground():void 
@@ -57,10 +80,5 @@
 			addChild(scale9GridLayout);
 		}
 		
-		override public function transitionOut():void 
-		{
-			super.transitionOut();
-			TweenMax.to(this, 1, {alpha:0, onComplete:transitionOutComplete});
-		}
 	}
 }
