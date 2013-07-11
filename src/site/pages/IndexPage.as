@@ -15,7 +15,8 @@
 	
 	public class IndexPage extends AbstractPage
 	{	
-		private var baseUI:BaseUI;
+		public var baseUI:BaseUI;
+		public var scale9GridLayout:Scale9GridLayoutSprite;
 		
 		public function IndexPage()
 		{
@@ -28,7 +29,8 @@
 			createCanvas();
 			createBackground();
 			createElements();
-			TweenMax.to(this, 0.3, {alpha:1, onComplete:transitionInComplete});
+			baseUI.refresh();
+			TweenMax.to(this, 1, {alpha:1, onComplete:transitionInComplete});
 		}
 		
 		private function createBackground():void 
@@ -51,14 +53,14 @@
 		
 		private function createElements():void 
 		{
-			var scale9Grid:Scale9GridLayoutSprite = new Scale9GridLayoutSprite(baseUI, IXml(assets.baseUI).xml);
-			addChild(scale9Grid);
+			scale9GridLayout = new Scale9GridLayoutSprite(baseUI, IXml(assets.baseUI).xml);
+			addChild(scale9GridLayout);
 		}
 		
 		override public function transitionOut():void 
 		{
 			super.transitionOut();
-			TweenMax.to(this, 0.3, {alpha:0, onComplete:transitionOutComplete});
+			TweenMax.to(this, 1, {alpha:0, onComplete:transitionOutComplete});
 		}
 	}
 }
