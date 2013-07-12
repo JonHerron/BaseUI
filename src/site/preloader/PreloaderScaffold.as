@@ -12,18 +12,20 @@
 * http://www.opensource.org/licenses/mit-license 
 *****************************************************************************************************/
 
-package site.pages
+package site.preloader
 {
-	import com.gaiaframework.templates.AbstractPreloader;
-	import com.gaiaframework.api.Gaia;
 	import com.gaiaframework.events.*;
 	import com.greensock.TweenMax;
+	import com.soma.ui.BaseUI;
 	import flash.display.*;
 	import flash.events.*;
 	import flash.text.*;
+	import site.layout.ElementUISprite;
 
-	public class PreloaderScaffold extends Sprite
+	public class PreloaderScaffold extends ElementUISprite
 	{
+		public var baseUI:BaseUI;
+		
 		public var TXT_Overall:TextField;
 		public var TXT_Asset:TextField;
 		public var TXT_Bytes:TextField;
@@ -37,20 +39,26 @@ package site.pages
 			mouseEnabled = mouseChildren = false;
 			addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		}
+		
 		private function onAddedToStage(event:Event):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			stage.addEventListener(Event.RESIZE, onResize);
-			onResize();
+			baseUI = new BaseUI(stage);
+			element = baseUI.add(this);
+			element.bottom = element.left = 0;
+			element.refresh(new Event(Event.RESIZE));
 		}
+		
 		public function transitionIn():void
 		{
 			TweenMax.to(this, .1, {autoAlpha:1});
 		}
+		
 		public function transitionOut():void
 		{
 			TweenMax.to(this, .1, {autoAlpha:0});
 		}
+		
 		public function onProgress(event:AssetEvent):void
 		{
 			// if bytes, don't show if loaded = 0, if not bytes, don't show if perc = 0
@@ -72,10 +80,8 @@ package site.pages
 			TXT_Bytes.text = (event.bytes) ? event.loaded + " / " + event.total : "";
 			TXT_Bytes.autoSize = TextFieldAutoSize.LEFT;
 		}
-		private function onResize(event:Event = null):void
-		{
-			x = (Gaia.api.getWidth() - width) / 2;
-			y = (Gaia.api.getHeight() - height) / 2;
-		}
+		
+		
+		
 	}
 }

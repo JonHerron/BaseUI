@@ -12,7 +12,7 @@
 * http://www.opensource.org/licenses/mit-license 
 *****************************************************************************************************/
 
-package site.pages
+package site.preloader
 {
 	import com.gaiaframework.templates.AbstractPreloader;
 	import com.gaiaframework.events.AssetEvent;

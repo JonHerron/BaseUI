@@ -14,51 +14,12 @@
 	
 	public class IndexPage extends TimelinePage
 	{	
-		public var baseUI:BaseUI;
 		public var scale9GridLayout:Scale9GridLayoutSprite;
 		
 		public function IndexPage()
 		{
 			super();
 			alpha = 0;
-		}
-		
-		override public function createPage():void 
-		{
-			createCanvas();
-			createBackground();
-			createElements();
-		}
-		
-		override public function pageTransitionIn():void 
-		{
-			baseUI.refresh();
-		}
-		
-		
-		
-		override public function pageTransitionOut():void 
-		{
-			//throw new IllegalOperationError("method must be overridden in a subclass");
-		}
-		
-		override public function destroyPage():void
-		{
-			baseUI.dispose();
-			baseUI = null;
-		}
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		private function createCanvas():void 
-		{
-			baseUI = new BaseUI(page.stage);
 		}
 		
 		private function createBackground():void 
@@ -79,6 +40,45 @@
 			scale9GridLayout = new Scale9GridLayoutSprite(baseUI, IXml(assets.baseUI).xml);
 			addChild(scale9GridLayout);
 		}
+		
+		
+		
+		override public function createPage():void 
+		{
+			createBackground();
+			createElements();
+		}
+		
+		override public function pageTransitionIn():void 
+		{
+			
+		}
+		
+		
+		
+		override public function pageTransitionOut():void 
+		{
+			
+		}
+		
+		override public function destroyPage():void
+		{
+			
+		}
+		
+		
+		
+		override public function pageResizeHandler(e:Event):void
+		{
+			
+		}
+		
+		
+		
+		
+		
+		
+		
 		
 	}
 }

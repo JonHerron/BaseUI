@@ -34,7 +34,7 @@
     <byteArrayAsset>true</byteArrayAsset>
   </optimizeTypes>
   <publishData>
-    <node label="fla" checked="1">
+    <node label="fla" checked="2">
       <node label="swf" icon="flashFileIcon" checked="1">
         <node label="pages" icon="flashFileIcon" checked="1">
           <node label="default.fla" icon="flashFileIcon" checked="1" src="swf/pages/default.fla"/>
@@ -43,7 +43,7 @@
         <node label="index.fla" icon="flashFileIcon" checked="1" src="swf/index.fla"/>
         <node label="nav.fla" icon="flashFileIcon" checked="1" src="swf/nav.fla"/>
       </node>
-      <node label="preload.fla" icon="flashFileIcon" checked="1" src="preload.fla"/>
+      <node label="preload.fla" icon="flashFileIcon" checked="0" src="preload.fla"/>
       <node label="main.fla" icon="mainFileIcon" checked="1" src="main.fla"/>
     </node>
   </publishData>

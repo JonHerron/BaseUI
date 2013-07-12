@@ -47,7 +47,7 @@ package site.layout.template
 			topCentre 		= createElementUISprite(1, middleCentreNode.@top, 0x005BB2);
 			topRight 		= createElementUISprite(middleCentreNode.@right, middleCentreNode.@top, 0x005BB2);
 			middleLeft 		= createElementUISprite(middleCentreNode.@left, 1, 0x005BB2);
-			middleCentre 	= createElementUISprite(1, 1, 0x7EC0FF);
+			middleCentre 	= createElementUISprite(1, 1, 0x005BB2);
 			middleRight 	= createElementUISprite(middleCentreNode.@right, 1, 0x005BB2);
 			bottomLeft 		= createElementUISprite(middleCentreNode.@left, middleCentreNode.@bottom, 0x005BB2);
 			bottomCentre 	= createElementUISprite(1, middleCentreNode.@bottom, 0x005BB2);
