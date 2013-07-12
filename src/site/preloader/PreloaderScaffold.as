@@ -17,6 +17,13 @@ package site.preloader
 	import com.gaiaframework.events.*;
 	import com.greensock.TweenMax;
 	import com.soma.ui.BaseUI;
+	import com.gaiaframework.api.IXml;
+	import com.gaiaframework.templates.AbstractPreloader;
+	import com.gaiaframework.api.Gaia;
+	import com.gaiaframework.events.*;
+	import com.greensock.TweenMax;
+	import com.soma.ui.BaseUI;
+	import com.soma.ui.ElementUI;
 	import flash.display.*;
 	import flash.events.*;
 	import flash.text.*;
@@ -45,12 +52,23 @@ package site.preloader
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			baseUI = new BaseUI(stage);
 			element = baseUI.add(this);
-			element.bottom = element.left = 0;
+			element.bottom = 0;
+			element.left = 0;
 			element.refresh(new Event(Event.RESIZE));
 		}
 		
 		public function transitionIn():void
 		{
+			
+			try 
+			{
+				//element.horizontalCenter = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleCentre.@left;
+			} 
+			catch (err:Error) 
+			{
+				trace("Either no Asset of no Gaia?");
+			}
+			
 			TweenMax.to(this, .1, {autoAlpha:1});
 		}
 		
