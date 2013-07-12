@@ -2,6 +2,7 @@ package site.core
 {
 	import com.gaiaframework.events.GaiaSWFAddressEvent;
 	import com.gaiaframework.templates.AbstractPage;
+	import com.soma.ui.BaseUI;
 	
 	/**
 	 * ...
@@ -9,6 +10,8 @@ package site.core
 	 */
 	public class DeeplinkPage extends AbstractPage 
 	{
+		public var baseUI:BaseUI;
+		
 		public function DeeplinkPage() 
 		{
 			super();

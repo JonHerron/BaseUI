@@ -12,18 +12,24 @@
 * http://www.opensource.org/licenses/mit-license 
 *****************************************************************************************************/
 
-package site.pages
+package site.preloader
 {
+	import com.gaiaframework.api.IXml;
 	import com.gaiaframework.templates.AbstractPreloader;
 	import com.gaiaframework.api.Gaia;
 	import com.gaiaframework.events.*;
 	import com.greensock.TweenMax;
+	import com.soma.ui.BaseUI;
+	import com.soma.ui.ElementUI;
 	import flash.display.*;
 	import flash.events.*;
 	import flash.text.*;
+	import site.layout.ElementUISprite;
 
-	public class PreloaderScaffold extends Sprite
+	public class PreloaderScaffold extends ElementUISprite
 	{
+		public var baseUI:BaseUI;
+		
 		public var TXT_Overall:TextField;
 		public var TXT_Asset:TextField;
 		public var TXT_Bytes:TextField;
@@ -41,10 +47,25 @@ package site.pages
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			stage.addEventListener(Event.RESIZE, onResize);
-			onResize();
+			baseUI = new BaseUI(stage);
+			element = baseUI.add(this);
+			element.bottom = 0;
+			element.left = 0;
+			element.refresh(new Event(Event.RESIZE));
+			stage.dispatchEvent(new Event(Event.RESIZE));
 		}
 		public function transitionIn():void
 		{
+			
+			try 
+			{
+				//element.horizontalCenter = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleCentre.@left;
+			} 
+			catch (err:Error) 
+			{
+				trace("Either no Asset of no Gaia?");
+			}
+			
 			TweenMax.to(this, .1, {autoAlpha:1});
 		}
 		public function transitionOut():void
@@ -74,8 +95,8 @@ package site.pages
 		}
 		private function onResize(event:Event = null):void
 		{
-			x = (Gaia.api.getWidth() - width) / 2;
-			y = (Gaia.api.getHeight() - height) / 2;
+			//x = (Gaia.api.getWidth() - width) / 2;
+			//y = (Gaia.api.getHeight() - height) / 2;
 		}
 	}
 }

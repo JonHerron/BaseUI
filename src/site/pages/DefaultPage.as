@@ -11,7 +11,6 @@
 	
 	public class DefaultPage extends TimelinePage
 	{	
-		private var baseUI:BaseUI;
 		private var sprite:ElementUISprite;
 		
 		public function DefaultPage()
@@ -20,41 +19,11 @@
 			alpha = 0;
 		}
 		
-		override public function createPage():void 
-		{
-			createLayoutUI();
-		}
-		
-		override public function pageTransitionIn():void 
-		{
-			//baseUI.refresh();
-		}
-		
-		
-		
-		override public function pageTransitionOut():void 
-		{
-			//throw new IllegalOperationError("method must be overridden in a subclass");
-		}
-		
-		override public function destroyPage():void
-		{
-			//baseUI.dispose();
-			//baseUI = null;
-		}
-		
-		
-		
-		
-		
-		
 		private function createLayoutUI():void 
 		{
-			baseUI = new BaseUI(page.stage);
-
 			sprite = new ElementUISprite();
-			sprite.graphics.beginFill(0xCAF495, 1);
-			sprite.graphics.drawRect(0, 0, 10, 10);
+			sprite.graphics.beginFill(0x495CAF, 0.7);
+			sprite.graphics.drawRect(0, 0, 1, 1);
 			sprite.graphics.endFill();
 			sprite.element = baseUI.add(sprite);
 			sprite.element.top = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleCentre.@top;
@@ -68,6 +37,50 @@
 			
 			
 		}
+		
+		
+		
+		
+		
+		
+		
+		override public function createPage():void 
+		{
+			createLayoutUI();
+		}
+		
+		override public function pageTransitionIn():void 
+		{
+			
+		}
+		
+		
+		
+		override public function pageTransitionOut():void 
+		{
+			
+		}
+		
+		override public function destroyPage():void
+		{
+			
+		}
+		
+		
+		
+		override public function pageResizeHandler(e:Event):void
+		{
+			
+		}
+		
+		override public function deepLinkHandler(deeplink:String):void
+		{
+			
+		}
+		
+		
+		
+		
 		
 	}
 }

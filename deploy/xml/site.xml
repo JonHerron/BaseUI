@@ -1,11 +1,15 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<site title="BaseUI: %PAGE%" menu="true" indexFirst="true">
-    <page id="index" src="swf/index.swf">
-		<asset id="baseUI" src="xml/baseUI.xml" />
-		<asset id="background" src="bitmap/jhp-000.jpg" />
-        <page id="nav" src="swf/nav.swf" depth="top">
-            <page id="home" title="Home" src="swf/pages/home.swf" menu="true" />
-            <page id="default" title="Default" src="swf/pages/default.swf" menu="true" />
-        </page>
+﻿<site title="BaseUI: %PAGE%" menu="true" indexFirst="true">
+  <page id="index" src="swf/index.swf" bytes="39854">
+    <asset id="baseUI" src="xml/baseUI.xml" bytes="495"/>
+    <asset id="background" src="bitmap/jhp-000.jpg" bytes="1077733"/>
+    <page id="nav" src="swf/nav.swf" depth="top" bytes="42480">
+      <asset id="background" src="bitmap/jhp-000.jpg" bytes="1077733"/>
+      <page id="home" title="Home" src="swf/pages/home.swf" menu="true" bytes="39079">
+        <asset id="background" src="bitmap/jhp-000.jpg" bytes="1077733"/>
+      </page>
+      <page id="default" title="Default" src="swf/pages/default.swf" menu="true" bytes="39105">
+        <asset id="background" src="bitmap/jhp-000.jpg" bytes="1077733"/>
+      </page>
     </page>
+  </page>
 </site>
