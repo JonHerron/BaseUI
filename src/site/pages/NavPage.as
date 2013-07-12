@@ -53,24 +53,6 @@
 			
 			
 			vbox = new VBoxUI(vboxContent, 1, 1);
-			//sprite = new ElementUISprite();
-			//sprite.graphics.beginFill(0xCAF495, 0.7);
-			//sprite.graphics.drawRect(0, 0, 1, 1);
-			//sprite.graphics.endFill();
-			//sprite.element = baseUI.add(sprite);
-			//sprite.setElementPropertiesFromXML( IXml(Gaia.api.getSiteTree().assets.baseUI).xml.topLeft );
-			//sprite.element.top = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleLeft.@top;
-			//sprite.element.bottom = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleLeft.@bottom;
-			//sprite.element.left = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleLeft.@left;
-			//sprite.element.right = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleLeft.@right;
-			//
-			//addChild(sprite);
-			//
-			//sprite.element.refresh(new Event(Event.RESIZE));
-			
-			
-			vbox = new VBoxUI(Gaia.api.getSiteTree().content.scale9GridLayout.middleLeft, 1, 1);
-
 			vbox.ratio = ElementUI.RATIO_OUT;
 			vbox.alignX = ElementUI.ALIGN_LEFT;
 			vbox.alignY = ElementUI.ALIGN_TOP;
@@ -86,11 +68,7 @@
 				button.addEventListener(MouseEvent.ROLL_OVER, onMouseRollOverHandler, false, 0, true);
 				button.addEventListener(MouseEvent.ROLL_OUT, onMouseRollOutHandler, false, 0, true);
 				button.graphics.lineStyle(1, 0xFFFFFF);
-
 				button.graphics.beginFill(ColourUtil.randomColourRange( 0x005BB2, 100 ), .7);
-
-				button.graphics.beginFill(Math.random() * 0xFFFFFF, .7);
-
 				button.graphics.drawRect(0, 0, 190, 30);
 				button.buttonMode = true;
 				vbox.addChild(button);
