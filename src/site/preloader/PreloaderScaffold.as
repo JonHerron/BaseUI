@@ -14,9 +14,19 @@
 
 package site.preloader
 {
+<<<<<<< HEAD:src/site/preloader/PreloaderScaffold.as
 	import com.gaiaframework.events.*;
 	import com.greensock.TweenMax;
 	import com.soma.ui.BaseUI;
+=======
+	import com.gaiaframework.api.IXml;
+	import com.gaiaframework.templates.AbstractPreloader;
+	import com.gaiaframework.api.Gaia;
+	import com.gaiaframework.events.*;
+	import com.greensock.TweenMax;
+	import com.soma.ui.BaseUI;
+	import com.soma.ui.ElementUI;
+>>>>>>> 01091b1f307cffb028f239ad94ab4146d47afee8:src/site/preloader/PreloaderScaffold.as
 	import flash.display.*;
 	import flash.events.*;
 	import flash.text.*;
@@ -43,14 +53,34 @@ package site.preloader
 		private function onAddedToStage(event:Event):void
 		{
 			removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
+<<<<<<< HEAD:src/site/preloader/PreloaderScaffold.as
 			baseUI = new BaseUI(stage);
 			element = baseUI.add(this);
 			element.bottom = element.left = 0;
 			element.refresh(new Event(Event.RESIZE));
+=======
+			stage.addEventListener(Event.RESIZE, onResize);
+			baseUI = new BaseUI(stage);
+			element = baseUI.add(this);
+			element.bottom = 0;
+			element.left = 0;
+			element.refresh(new Event(Event.RESIZE));
+			stage.dispatchEvent(new Event(Event.RESIZE));
+>>>>>>> 01091b1f307cffb028f239ad94ab4146d47afee8:src/site/preloader/PreloaderScaffold.as
 		}
 		
 		public function transitionIn():void
 		{
+			
+			try 
+			{
+				//element.horizontalCenter = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleCentre.@left;
+			} 
+			catch (err:Error) 
+			{
+				trace("Either no Asset of no Gaia?");
+			}
+			
 			TweenMax.to(this, .1, {autoAlpha:1});
 		}
 		
@@ -80,8 +110,16 @@ package site.preloader
 			TXT_Bytes.text = (event.bytes) ? event.loaded + " / " + event.total : "";
 			TXT_Bytes.autoSize = TextFieldAutoSize.LEFT;
 		}
+<<<<<<< HEAD:src/site/preloader/PreloaderScaffold.as
 		
 		
 		
+=======
+		private function onResize(event:Event = null):void
+		{
+			//x = (Gaia.api.getWidth() - width) / 2;
+			//y = (Gaia.api.getHeight() - height) / 2;
+		}
+>>>>>>> 01091b1f307cffb028f239ad94ab4146d47afee8:src/site/preloader/PreloaderScaffold.as
 	}
 }
