@@ -20,9 +20,9 @@
 	{	
 		private var sprite:ElementUISprite;
 		private var vbox:VBoxUI;
-		private var vboxContent:ElementUISprite;
+		private var vboxReference:ElementUISprite;
 		private var hbox:HBoxUI;
-		private var hboxContent:ElementUISprite;
+		private var hboxReference:ElementUISprite;
 		
 		public function NavPage()
 		{
@@ -35,24 +35,21 @@
 		private function createLayoutUI():void 
 		{
 			createVBox();
-			//createHBox();
+			createHBox();
 		}
 		
 		private function createVBox():void 
 		{
-			vboxContent = new ElementUISprite();
-			vboxContent.graphics.beginFill(0xCAF495, 0);
-			vboxContent.graphics.drawRect(0, 0, IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleCentre.@left, 1);
-			vboxContent.graphics.endFill();
-			vboxContent.element = baseUI.add(vboxContent);
-			vboxContent.setElementPropertiesFromXML( IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleLeft );
+			vboxReference = Site.getElementUISprite(Site.middleLeft, 0xAAAAAA, 0);
+			vboxReference.element = baseUI.add(vboxReference);
+			vboxReference.setElementPropertiesFromXML( Site.middleLeft );
 			
-			addChild(vboxContent);
+			addChild(vboxReference);
 			
-			vboxContent.element.refresh(new Event(Event.RESIZE));
+			vboxReference.element.refresh(new Event(Event.RESIZE));
 			
 			
-			vbox = new VBoxUI(vboxContent, 1, 1);
+			vbox = new VBoxUI(vboxReference, 1, 1);
 			vbox.ratio = ElementUI.RATIO_OUT;
 			vbox.alignX = ElementUI.ALIGN_LEFT;
 			vbox.alignY = ElementUI.ALIGN_TOP;
@@ -79,25 +76,22 @@
 		
 		private function createHBox():void 
 		{
-			hboxContent = new ElementUISprite();
-			hboxContent.graphics.beginFill(0xCAF495, 0);
-			hboxContent.graphics.drawRect(0, 0, 600, IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleCentre.@top);
-			hboxContent.graphics.endFill();
-			hboxContent.element = baseUI.add(hboxContent);
-			hboxContent.setElementPropertiesFromXML( IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleTop );
+			hboxReference = Site.getElementUISprite(Site.topCentre, 0xAAAAAA, 0);
+			hboxReference.element = baseUI.add(hboxReference);
+			hboxReference.setElementPropertiesFromXML( Site.topCentre );
 			
-			addChild(hboxContent);
+			addChild(hboxReference);
 			
-			hboxContent.element.refresh(new Event(Event.RESIZE));
+			hboxReference.element.refresh(new Event(Event.RESIZE));
 			
 			
-			hbox = new HBoxUI(hboxContent, 1, 1);
+			hbox = new HBoxUI(hboxReference, 1, 1);
 			hbox.ratio = ElementUI.RATIO_OUT;
-			hbox.alignX = ElementUI.ALIGN_LEFT;
+			hbox.alignX = ElementUI.ALIGN_CENTER;
 			hbox.alignY = ElementUI.ALIGN_CENTER;
 			hbox.childrenGap = new GapUI(5, 5);
 			hbox.childrenPadding = new PaddingUI(0, 0, 5, 5);
-			hbox.childrenAlign = HBoxUI.ALIGN_TOP_LEFT;
+			hbox.childrenAlign = HBoxUI.ALIGN_CENTER_LEFT;
 			addChild(hbox);
 			
 			for (var i:int = 0; i < 8; ++i) 
@@ -130,7 +124,30 @@
 			{
 				trace("Button clicked, but nowhere to go");
 			}
-			TweenMax.to(e.target, 0.3, { height: 40, onUpdate:vbox.refresh, ease:Expo.easeInOut } );
+			
+			if (hbox.contains(e.target as DisplayObject))
+			{
+				if (e.target.width < 100)
+				{
+					TweenMax.to(e.target, 0.3, { width: 100, onUpdate:hbox.refresh, ease:Expo.easeInOut } );
+				}
+				else
+				{
+					TweenMax.to(e.target, 0.3, { width: 90, onUpdate:hbox.refresh, ease:Expo.easeInOut } );
+				}
+			}
+			else if (vbox.contains(e.target as DisplayObject))
+			{
+				if (e.target.height < 40)
+				{
+					TweenMax.to(e.target, 0.3, { height: 40, onUpdate:vbox.refresh, ease:Expo.easeInOut } );
+				}
+				else
+				{
+					TweenMax.to(e.target, 0.3, { height: 30, onUpdate:vbox.refresh, ease:Expo.easeInOut } );
+				}
+			}
+			
 		}
 		
 		private function onMouseRollOverHandler(e:MouseEvent):void 

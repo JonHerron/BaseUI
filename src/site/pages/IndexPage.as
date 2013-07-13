@@ -46,7 +46,7 @@
 		override public function createPage():void 
 		{
 			createBackground();
-			createElements();
+			//createElements();
 		}
 		
 		override public function pageTransitionIn():void 

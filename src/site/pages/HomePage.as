@@ -20,15 +20,9 @@
 		
 		private function createLayoutUI():void 
 		{
-			sprite = new ElementUISprite();
-			sprite.graphics.beginFill(0xCAF495, 0.7);
-			sprite.graphics.drawRect(0, 0, 1, 1);
-			sprite.graphics.endFill();
+			sprite = Site.getElementUISprite(Site.middleCentre, 0xAAAAAA, 0.7);
 			sprite.element = baseUI.add(sprite);
-			sprite.element.top = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleCentre.@top;
-			sprite.element.bottom = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleCentre.@bottom;
-			sprite.element.left = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleCentre.@left;
-			sprite.element.right = IXml(Gaia.api.getSiteTree().assets.baseUI).xml.middleCentre.@right;
+			sprite.setElementPropertiesFromXML(Site.middleCentre);
 			
 			addChild(sprite);
 			
