@@ -2,6 +2,7 @@
   <page id="index" src="swf/index.swf" bytes="39854">
     <asset id="baseUI" src="xml/baseUI.xml" bytes="495"/>
     <asset id="background" src="bitmap/jhp-000.jpg" bytes="1077733"/>
+	<asset id="siteFonts" src="swf/siteFonts.swf" fonts="MankSansMedium,PFRondaSeven,Bend2Squares" bytes="25263" />
     <page id="nav" src="swf/nav.swf" depth="top" bytes="42480">
 	  <asset id="logo" src="bitmap/logo.png"/>
       <asset id="background" src="bitmap/jhp-000.jpg" bytes="1077733"/>
