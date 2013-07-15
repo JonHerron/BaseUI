@@ -25,7 +25,7 @@ package site.layout
 					element[ String( attr.name() ) ] = attr.toString();
 				}
 			}
-			
+			element.rounded = true;
 			element.refresh();
 		}
 		

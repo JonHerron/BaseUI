@@ -15,14 +15,17 @@
 	import site.core.TimelinePage;
 	import site.layout.ElementUISprite;
 	import site.utils.ColourUtil;
+	import site.utils.fullScreen.FullScreenModeButton;
 	
 	public class NavPage extends TimelinePage
 	{	
-		private var sprite:ElementUISprite;
+		private var fullScreenModeButton:FullScreenModeButton;
 		private var vbox:VBoxUI;
 		private var vboxReference:ElementUISprite;
 		private var hbox:HBoxUI;
 		private var hboxReference:ElementUISprite;
+		
+		private var sprite:ElementUISprite;
 		
 		public function NavPage()
 		{
@@ -34,8 +37,19 @@
 		
 		private function createLayoutUI():void 
 		{
+			createFullScreenModeButton();
 			createVBox();
 			createHBox();
+		}
+		
+		private function createFullScreenModeButton():void 
+		{
+			fullScreenModeButton = new FullScreenModeButton(page.stage);
+			fullScreenModeButton.element = baseUI.add(fullScreenModeButton);
+			fullScreenModeButton.element.top = 75;
+			fullScreenModeButton.element.right = 20;
+			addChild(fullScreenModeButton);
+			fullScreenModeButton.element.refresh(new Event(Event.RESIZE));
 		}
 		
 		private function createVBox():void 
@@ -77,6 +91,7 @@
 		private function createHBox():void 
 		{
 			hboxReference = Site.getElementUISprite(Site.topCentre, 0xAAAAAA, 0);
+			hboxReference.mouseEnabled = false;
 			hboxReference.element = baseUI.add(hboxReference);
 			hboxReference.setElementPropertiesFromXML( Site.topCentre );
 			
@@ -86,6 +101,7 @@
 			
 			
 			hbox = new HBoxUI(hboxReference, 1, 1);
+			hbox.mouseEnabled = false;
 			hbox.ratio = ElementUI.RATIO_OUT;
 			hbox.alignX = ElementUI.ALIGN_CENTER;
 			hbox.alignY = ElementUI.ALIGN_CENTER;

@@ -33,64 +33,6 @@ package
 			return xml;
 		}
 		
-		
-		
-		
-		
-		public static var currentBranch:IPageAsset = getCurrentBranch();
-		private static function getCurrentBranch():IPageAsset
-		{
-			var page:IPageAsset;
-			
-			try 
-			{
-				page = Gaia.api.getPage( Gaia.api.getCurrentBranch() ) as IPageAsset;
-			} 
-			catch (error:Error) 
-			{
-				trace("No Gaia Instance, currentBranch = null");
-				page = null;
-			};
-			
-			return page;
-		}
-		
-		
-		
-		/**
-		*	Determines whether Gaia.api.getCurrentBranch() contains any instances of newBranch.
-		*
-		*	@param newBranch The character or sub-string we are looking for.
-		*
-		*	@returns Boolean
-		*
-		* 	@langversion ActionScript 3.0
-		*	@playerversion Flash 9.0
-		*	@tiptext
-		*/
-		public static function branchCheck(newBranch:String):Boolean 
-		{
-			var value:Boolean;
-			try 
-			{
-				(Gaia.api.getCurrentBranch().indexOf(newBranch) != -1) ? value = true : value = false;
-			} 
-			catch (error:Error) 
-			{
-				trace("No Gaia Instance, Gaia.api.getCurrentBranch() = null");
-				value = false;
-			}
-			
-			return value;
-		}
-		
-		
-		
-		
-		
-		
-		
-		
 		public static var topLeft:XMLList = getBaseUIAssetNode("topLeft");
 		public static var topCentre:XMLList = getBaseUIAssetNode("topCentre");
 		public static var topRight:XMLList = getBaseUIAssetNode("topRight");
@@ -100,12 +42,6 @@ package
 		public static var bottomLeft:XMLList = getBaseUIAssetNode("bottomLeft");
 		public static var bottomCentre:XMLList = getBaseUIAssetNode("bottomCentre");
 		public static var bottomRight:XMLList = getBaseUIAssetNode("bottomRight");
-		
-		
-		public static var topCentreRect:Rectangle = new Rectangle(0, 0, 1, middleCentre.@top);
-		
-		
-		
 		
 		private static function getBaseUIAssetNode(node:String):XMLList
 		{
@@ -166,6 +102,19 @@ package
 		}
 		
 		
+		/**
+		*	Returns a ElementUISprite sized from the xml defined in the baseUI.xml.
+		*
+		* 	@param node The node defined in the XMLAsset from baseUI.xml
+ 		* 	@param colour The colour of the ElementUISprite
+		* 	@param alpha The alpha of the ElementUISprite
+		* 
+		*	@returns ElementUISprite
+		*
+		* 	@langversion ActionScript 3.0
+		*	@playerversion Flash 9.0
+		*	@tiptext
+		*/
 		public static function getElementUISprite(node:XMLList, colour:uint = 0xFF0000, alpha = 1):ElementUISprite
 		{
 			var elementUISprite:ElementUISprite
@@ -226,7 +175,85 @@ package
 			};
 			
 			return elementUISprite;
+		}		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		public static var currentBranch:IPageAsset = getCurrentBranch();
+		/**
+		*	Gets currentBranch by using Gaia.api.getCurrentBranch().
+		*
+		*	@returns IPageAsset
+		*
+		* 	@langversion ActionScript 3.0
+		*	@playerversion Flash 9.0
+		*	@tiptext
+		*/
+		private static function getCurrentBranch():IPageAsset
+		{
+			var page:IPageAsset;
+			
+			try 
+			{
+				page = Gaia.api.getPage( Gaia.api.getCurrentBranch() ) as IPageAsset;
+			} 
+			catch (error:Error) 
+			{
+				trace("No Gaia Instance, currentBranch = null");
+				page = null;
+			};
+			
+			return page;
 		}
+		
+		/**
+		*	Determines whether Gaia.api.getCurrentBranch() contains any instances of newBranch.
+		*
+		*	@param newBranch The character or sub-string we are looking for.
+		*
+		*	@returns Boolean
+		*
+		* 	@langversion ActionScript 3.0
+		*	@playerversion Flash 9.0
+		*	@tiptext
+		*/
+		public static function branchCheck(newBranch:String):Boolean 
+		{
+			var value:Boolean;
+			try 
+			{
+				(Gaia.api.getCurrentBranch().indexOf(newBranch) != -1) ? value = true : value = false;
+			} 
+			catch (error:Error) 
+			{
+				trace("No Gaia Instance, Gaia.api.getCurrentBranch() = null");
+				value = false;
+			}
+			
+			return value;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+
 		
 		
 		
