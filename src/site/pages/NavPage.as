@@ -4,6 +4,7 @@
 	import com.gaiaframework.debug.*;
 	import com.gaiaframework.events.*;
 	import com.greensock.easing.Expo;
+	import com.greensock.TweenAlign;
 	import com.greensock.TweenMax;
 	import com.soma.ui.ElementUI;
 	import com.soma.ui.layouts.HBoxUI;
@@ -20,10 +21,14 @@
 	public class NavPage extends TimelinePage
 	{	
 		private var fullScreenModeButton:FullScreenModeButton;
+		
 		private var vbox:VBoxUI;
 		private var vboxReference:ElementUISprite;
+		private var vboxItems:Array;
+		
 		private var hbox:HBoxUI;
 		private var hboxReference:ElementUISprite;
+		private var hboxItems:Array;
 		
 		private var sprite:ElementUISprite;
 		
@@ -54,6 +59,8 @@
 		
 		private function createVBox():void 
 		{
+			vboxItems = new Array();
+			
 			vboxReference = Site.getElementUISprite(Site.middleLeft, 0xAAAAAA, 0);
 			vboxReference.element = baseUI.add(vboxReference);
 			vboxReference.setElementPropertiesFromXML( Site.middleLeft );
@@ -82,6 +89,7 @@
 				button.graphics.beginFill(ColourUtil.randomColourRange( 0x005BB2, 100 ), .7);
 				button.graphics.drawRect(0, 0, 190, 30);
 				button.buttonMode = true;
+				vboxItems.push(button);
 				vbox.addChild(button);
 			}
 			
@@ -90,6 +98,8 @@
 		
 		private function createHBox():void 
 		{
+			hboxItems = new Array();
+			
 			hboxReference = Site.getElementUISprite(Site.topCentre, 0xAAAAAA, 0);
 			hboxReference.mouseEnabled = false;
 			hboxReference.element = baseUI.add(hboxReference);
@@ -120,6 +130,7 @@
 				button.graphics.beginFill(ColourUtil.randomColourRange( 0x005BB2, 100 ), .7);
 				button.graphics.drawRect(0, 0, 90, 90);
 				button.buttonMode = true;
+				hboxItems.push(button);
 				hbox.addChild(button);
 			}
 			
@@ -189,14 +200,38 @@
 		
 		override public function pageTransitionIn():void 
 		{
+			tweenList = new Array();
 			
+			for ( var i:int = 0; i < vboxItems.length; i++ )
+			{
+				tweenList.push( TweenMax.from(vboxItems[i], 0.1, { x:"-200", ease:Expo.easeInOut } ) );
+			}
+			for ( var j:int = 0; j < hboxItems.length; j++ )
+			{
+				tweenList.push( TweenMax.from(hboxItems[j], 0.1, { y:"-100", ease:Expo.easeInOut } ) );
+			}
+			
+			timeline.appendMultiple(tweenList, 0, TweenAlign.SEQUENCE, 0 );
+			timeline.totalDuration(3);
 		}
 		
 		
 		
 		override public function pageTransitionOut():void 
 		{
+			tweenList = new Array();
 			
+			for ( var i:int = vboxItems.length - 1 ; i >= 0 ; i-- )
+			{
+				tweenList.push( TweenMax.to(vboxItems[i], 0.1, { alpha:0, ease:Expo.easeInOut } ) );
+			}
+			for ( var j:int = hboxItems.length - 1 ; j >= 0 ; j-- )
+			{
+				tweenList.push( TweenMax.to(hboxItems[j], 0.1, { alpha:0, ease:Expo.easeInOut } ) );
+			}
+			
+			timeline.appendMultiple(tweenList, 0, TweenAlign.SEQUENCE, 0 );
+			timeline.totalDuration(0.3);
 		}
 		
 		override public function destroyPage():void
