@@ -120,7 +120,14 @@
 			hbox.childrenAlign = HBoxUI.ALIGN_CENTER_LEFT;
 			addChild(hbox);
 			
-			for (var i:int = 0; i < 8; ++i) 
+			var logo:ElementUISprite = new ElementUISprite();
+			var bitmap:Bitmap = IBitmap(assets.logo).content;
+			bitmap.visible = true;
+			bitmap.smoothing = true;
+			logo.addChild(bitmap);
+			hbox.addChild(logo);
+			
+			for (var i:int = 0; i < 6; ++i) 
 			{
 				var button:Sprite = new Sprite();
 				button.addEventListener(MouseEvent.CLICK, onMouseClickHandler, false, 0, true);
@@ -136,6 +143,14 @@
 			
 			hbox.refresh();
 		}
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		private function onMouseClickHandler(e:MouseEvent):void 
 		{
@@ -186,6 +201,8 @@
 		{
 			//TweenMax.to(e.target, 0, { height: 30, onUpdate:vbox.refresh } );
 		}
+		
+		
 		
 		
 		

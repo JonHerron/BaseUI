@@ -3,6 +3,7 @@
     <asset id="baseUI" src="xml/baseUI.xml" bytes="495"/>
     <asset id="background" src="bitmap/jhp-000.jpg" bytes="1077733"/>
     <page id="nav" src="swf/nav.swf" depth="top" bytes="42480">
+	  <asset id="logo" src="bitmap/logo.png"/>
       <asset id="background" src="bitmap/jhp-000.jpg" bytes="1077733"/>
       <page id="home" title="Home" src="swf/pages/home.swf" menu="true" bytes="39079">
         <asset id="background" src="bitmap/jhp-000.jpg" bytes="1077733"/>
